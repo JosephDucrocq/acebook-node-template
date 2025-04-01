@@ -39,5 +39,8 @@ jobs:
       - name: Start Application
         run: node app.js & sleep 10 
 
+      - name: Check if server is running
+        run: curl -I http://localhost:3030 || exit 1
+
       - name: Cypress run
         uses: cypress-io/github-action@v4
