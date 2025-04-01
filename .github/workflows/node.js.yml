@@ -38,6 +38,7 @@ jobs:
 
       - name: Start Application
         run: node app.js &
+             sleep 10 
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
