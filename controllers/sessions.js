@@ -6,7 +6,7 @@ const SessionsController = {
   },
 
   Create: (req, res) => {
-    console.log("trying to login");
+    console.log("trying to login in there");
     const email = req.body.email;
     const password = req.body.password;
 
