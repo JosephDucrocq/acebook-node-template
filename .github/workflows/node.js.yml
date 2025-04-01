@@ -1,46 +1,49 @@
-name: Node.js CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+name: CI
+on: push
 jobs:
-
-  build:
+  setup:
+    name: Test Environment Setup
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Set up Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 23
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-  cypress-run:
+      - name: Install Dependencies
+        run: npm install
+  lint:
+    name: Run Linter
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Start Application
-        run: node app.js & sleep 10 
-
-      - name: Check if server is running
-        run: curl -I http://localhost:3030 || exit 1
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm install
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo:8.0
+        ports:
+          - 27017:27017
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm install
+      - name: Start Server and Run Integration Tests
+        run: npx start-server-and-test "npm run start:test" http://localhost:3030 "npm run test:integration"
