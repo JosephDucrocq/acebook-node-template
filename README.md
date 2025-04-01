@@ -62,7 +62,7 @@ REPLACE THIS TEXT WITH A LINK TO YOUR CARD WALL
 
 #### Start test server
 
-The server must be running locally with test configuration for the
+The server must be runnCing locally with test configuration for the
 integration tests to pass.
 
 ```
