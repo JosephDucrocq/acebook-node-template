@@ -36,5 +36,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Start Application
+        run: node app.js &
+
       - name: Cypress run
         uses: cypress-io/github-action@v4
