@@ -55,8 +55,8 @@ jobs:
           aws-region: eu-west-2
       - name: Push to S3 
         run: |
-            aws deploy push \  
-            --application-name acebookbucketpj \ 
+            aws deploy push \
+            --application-name acebookbucketpj \
             --description "This is a revision for the application acebookbucketpj" \
             --ignore-hidden-files \
             --s3-location s3://acebookbucketpj/app.zip \
