@@ -35,7 +35,7 @@ jobs:
         image: mongo:8.0
         ports:
           - 27017:27017
-        timeout: 10
+        timeout-minutes: 1
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
