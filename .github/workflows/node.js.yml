@@ -56,8 +56,8 @@ jobs:
       - name: Push to S3 
         run: |
           aws deploy push \
-            --application-name acebookbucketpj \
-            --description "This is a revision for the application acebookbucketpj" \
+            --application-name acebook-node-template \
+            --description "This is a revision for the application acebook-node-template" \
             --ignore-hidden-files \
             --s3-location s3://acebookbucketpj/app.zip \
             --source .
