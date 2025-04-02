@@ -61,5 +61,3 @@ jobs:
             --ignore-hidden-files \
             --s3-location s3://acebookbucketpj/app.zip \
             --source .
-      
-
