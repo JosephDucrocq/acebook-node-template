@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/express-app
+    destination: /home/ec2-user/acebook-node-template
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
