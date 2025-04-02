@@ -55,6 +55,13 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-2
-      - name: Copy to S3
-        run: aws s3 sync ./build/. s3://acebookbucketpj
+      - name: Push to S3 
+        run: |
+          aws deploy push \ 
+            --application-name acebook-citation-app \ 
+            --description "This is a revision for the application acebook_app" \
+            --ignore-hidden-files \
+            --s3-location s3://acebook-node-citation-bucket/app.zip \
+            --source .
+      
 
