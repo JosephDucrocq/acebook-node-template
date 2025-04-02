@@ -45,6 +45,8 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install
+      - name: Build Project
+        run: npm run build
       - name: Start Server and Run Integration Tests
         run: npx start-server-and-test "npm run start:test" http://localhost:3030 "npm run test:integration"
       - name: Set AWS credentials
