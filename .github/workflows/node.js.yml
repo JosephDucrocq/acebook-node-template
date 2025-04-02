@@ -62,3 +62,5 @@ jobs:
             --ignore-hidden-files \
             --s3-location s3://acebookbucketpj/app.zip \
             --source .
+      - name: deploy to S3
+        run: aws deploy create-deployment --application-name acebook_app_pj --s3-location bucket=acebookbucketpj,key=app.zip,bundleType=zip --deployment-group-name acebook_deploygroup_pj --deployment-config-name CodeDeployDefault.AllAtOnce
