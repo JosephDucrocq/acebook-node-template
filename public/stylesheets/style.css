@@ -1,9 +1,17 @@
 body {
   padding: 50px;
-  font: 50px "Copperplate", Helvetica, Arial, sans-serif;
-  color:rgb(217, 0, 255)
+  font: 50px "Pacifico", "Brush Script MT", cursive, sans-serif;
+  color: rgb(255, 165, 0); /* Sunset Orange */
+  background: linear-gradient(to bottom, #87CEEB, #fdfd96); /* Sky to Sand */
 }
 
 a {
-  color: #df2d0e;
+  color: #FF4500; /* Sunset Red */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #FFD700; /* Golden Sun */
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
 }
